@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Xalkrj2I/DFvm+MtX8DPeDlRwTzoyu3imWKRDV0RCEM=",
+  "Source": "MasterNet.WebApi",
+  "BasePath": "_content/MasterNet.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

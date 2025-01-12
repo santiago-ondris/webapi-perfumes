@@ -1,0 +1,8 @@
+// Sirve para hacer llamadas de pruebas de endpoints
+
+@MasterNet.WebApi_HostAddress = http://localhost:5077
+
+GET {{MasterNet.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,17 @@
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\bin\Debug\net9.0\MasterNet.Persistence.deps.json
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\bin\Debug\net9.0\MasterNet.Persistence.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\bin\Debug\net9.0\MasterNet.Persistence.pdb
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\bin\Debug\net9.0\MasterNet.Domain.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\bin\Debug\net9.0\MasterNet.Domain.pdb
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\obj\Debug\net9.0\MasterNet.Persistence.csproj.AssemblyReference.cache
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\obj\Debug\net9.0\MasterNet.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\obj\Debug\net9.0\MasterNet.Persistence.AssemblyInfoInputs.cache
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\obj\Debug\net9.0\MasterNet.Persistence.AssemblyInfo.cs
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\obj\Debug\net9.0\MasterNet.Persistence.csproj.CoreCompileInputs.cache
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\obj\Debug\net9.0\MasterNe.8A6D56B6.Up2Date
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\obj\Debug\net9.0\MasterNet.Persistence.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\obj\Debug\net9.0\refint\MasterNet.Persistence.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\obj\Debug\net9.0\MasterNet.Persistence.pdb
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\obj\Debug\net9.0\ref\MasterNet.Persistence.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\bin\Debug\net9.0\MasterNet.Persistence.runtimeconfig.json
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Persistence\obj\Debug\net9.0\MasterNet.Persistence.genruntimeconfig.cache
