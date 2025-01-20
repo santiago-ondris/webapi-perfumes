@@ -9,3 +9,4 @@ D:\Documentos\Proyectos\MasterNet\src\MasterNet.Domain\obj\Debug\net9.0\MasterNe
 D:\Documentos\Proyectos\MasterNet\src\MasterNet.Domain\obj\Debug\net9.0\refint\MasterNet.Domain.dll
 D:\Documentos\Proyectos\MasterNet\src\MasterNet.Domain\obj\Debug\net9.0\MasterNet.Domain.pdb
 D:\Documentos\Proyectos\MasterNet\src\MasterNet.Domain\obj\Debug\net9.0\ref\MasterNet.Domain.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Domain\obj\Debug\net9.0\MasterNet.Domain.sourcelink.json

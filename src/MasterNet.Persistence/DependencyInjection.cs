@@ -7,6 +7,7 @@ namespace MasterNet.Persistence
 {
     public static class DependencyInjection
     {
+        // Metodo para agregar la persistencia a la aplicacion
         public static IServiceCollection AddPersistence(
             this IServiceCollection services,
             IConfiguration configuration

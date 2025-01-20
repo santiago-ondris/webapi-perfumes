@@ -15,3 +15,4 @@ D:\Documentos\Proyectos\MasterNet\src\MasterNet.Application\obj\Debug\net9.0\Mas
 D:\Documentos\Proyectos\MasterNet\src\MasterNet.Application\obj\Debug\net9.0\refint\MasterNet.Application.dll
 D:\Documentos\Proyectos\MasterNet\src\MasterNet.Application\obj\Debug\net9.0\MasterNet.Application.pdb
 D:\Documentos\Proyectos\MasterNet\src\MasterNet.Application\obj\Debug\net9.0\ref\MasterNet.Application.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Application\obj\Debug\net9.0\MasterNet.Application.sourcelink.json

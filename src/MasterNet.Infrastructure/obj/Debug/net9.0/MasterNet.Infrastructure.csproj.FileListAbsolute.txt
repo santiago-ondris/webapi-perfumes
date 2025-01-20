@@ -17,3 +17,4 @@ D:\Documentos\Proyectos\MasterNet\src\MasterNet.Infrastructure\obj\Debug\net9.0\
 D:\Documentos\Proyectos\MasterNet\src\MasterNet.Infrastructure\obj\Debug\net9.0\refint\MasterNet.Infrastructure.dll
 D:\Documentos\Proyectos\MasterNet\src\MasterNet.Infrastructure\obj\Debug\net9.0\MasterNet.Infrastructure.pdb
 D:\Documentos\Proyectos\MasterNet\src\MasterNet.Infrastructure\obj\Debug\net9.0\ref\MasterNet.Infrastructure.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.Infrastructure\obj\Debug\net9.0\MasterNet.Infrastructure.sourcelink.json

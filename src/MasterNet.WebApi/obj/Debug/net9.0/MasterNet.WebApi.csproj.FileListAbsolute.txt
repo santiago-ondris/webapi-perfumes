@@ -144,3 +144,4 @@ D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\zh-Hant\
 D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\CsvHelper.dll
 D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\MasterNet.Infrastructure.dll
 D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\MasterNet.Infrastructure.pdb
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\obj\Debug\net9.0\MasterNet.WebApi.sourcelink.json
