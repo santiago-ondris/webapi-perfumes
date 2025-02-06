@@ -45,6 +45,7 @@ namespace MasterNet.Application.Perfumes.GetPerfume
                 .Include(x => x.Ingredientes)
                 .Include(x => x.Precios)
                 .Include(x => x.Calificaciones)
+                .Include(x => x.Fotos)
                 .ProjectTo<PerfumeResponse>(_mapper.ConfigurationProvider) // Mapea al modelo de respuesta
                 .FirstOrDefaultAsync(cancellationToken);
 

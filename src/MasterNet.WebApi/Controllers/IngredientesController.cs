@@ -1,3 +1,4 @@
+using MasterNet.Application.Core;
 using MasterNet.Application.Ingredientes.GetIngredientes;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +18,7 @@ namespace MasterNet.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> PaginationIngrediente
+        public async Task<ActionResult<PagedList<IngredienteResponse>>> PaginationIngrediente
         (
             [FromQuery] GetIngredientesRequest request,
             CancellationToken cancellationToken

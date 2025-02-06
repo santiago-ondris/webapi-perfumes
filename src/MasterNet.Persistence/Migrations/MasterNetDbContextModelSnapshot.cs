@@ -48,7 +48,10 @@ namespace MasterNet.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("PerfumeId")
+                    b.Property<Guid?>("PerfumeId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PublicId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Url")
@@ -304,13 +307,13 @@ namespace MasterNet.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "14e08900-a668-4e9d-8a2a-3260c5979ff9",
+                            Id = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8",
                             Name = "ADMIN",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "0b63c1d5-77e6-486c-bbb0-4a1f2b8f85a2",
+                            Id = "48856202-6f8f-4797-893c-addb0c330ed1",
                             Name = "CLIENT",
                             NormalizedName = "CLIENT"
                         });
@@ -344,98 +347,98 @@ namespace MasterNet.Persistence.Migrations
                             Id = 1,
                             ClaimType = "policies",
                             ClaimValue = "PERFUME_READ",
-                            RoleId = "14e08900-a668-4e9d-8a2a-3260c5979ff9"
+                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
                         },
                         new
                         {
                             Id = 2,
                             ClaimType = "policies",
                             ClaimValue = "PERFUME_UPDATE",
-                            RoleId = "14e08900-a668-4e9d-8a2a-3260c5979ff9"
+                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
                         },
                         new
                         {
                             Id = 3,
                             ClaimType = "policies",
                             ClaimValue = "PERFUME_WRITE",
-                            RoleId = "14e08900-a668-4e9d-8a2a-3260c5979ff9"
+                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
                         },
                         new
                         {
                             Id = 4,
                             ClaimType = "policies",
                             ClaimValue = "PERFUME_DELETE",
-                            RoleId = "14e08900-a668-4e9d-8a2a-3260c5979ff9"
+                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
                         },
                         new
                         {
                             Id = 5,
                             ClaimType = "policies",
                             ClaimValue = "INGREDIENTE_CREATE",
-                            RoleId = "14e08900-a668-4e9d-8a2a-3260c5979ff9"
+                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
                         },
                         new
                         {
                             Id = 6,
                             ClaimType = "policies",
                             ClaimValue = "INGREDIENTE_READ",
-                            RoleId = "14e08900-a668-4e9d-8a2a-3260c5979ff9"
+                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
                         },
                         new
                         {
                             Id = 7,
                             ClaimType = "policies",
                             ClaimValue = "INGREDIENTE_UPDATE",
-                            RoleId = "14e08900-a668-4e9d-8a2a-3260c5979ff9"
+                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
                         },
                         new
                         {
                             Id = 8,
                             ClaimType = "policies",
                             ClaimValue = "COMENTARIO_READ",
-                            RoleId = "14e08900-a668-4e9d-8a2a-3260c5979ff9"
+                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
                         },
                         new
                         {
                             Id = 9,
                             ClaimType = "policies",
                             ClaimValue = "COMENTARIO_DELETE",
-                            RoleId = "14e08900-a668-4e9d-8a2a-3260c5979ff9"
+                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
                         },
                         new
                         {
                             Id = 10,
                             ClaimType = "policies",
                             ClaimValue = "COMENTARIO_CREATE",
-                            RoleId = "14e08900-a668-4e9d-8a2a-3260c5979ff9"
+                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
                         },
                         new
                         {
                             Id = 11,
                             ClaimType = "policies",
                             ClaimValue = "PERFUME_READ",
-                            RoleId = "0b63c1d5-77e6-486c-bbb0-4a1f2b8f85a2"
+                            RoleId = "48856202-6f8f-4797-893c-addb0c330ed1"
                         },
                         new
                         {
                             Id = 12,
                             ClaimType = "policies",
                             ClaimValue = "INGREDIENTE_READ",
-                            RoleId = "0b63c1d5-77e6-486c-bbb0-4a1f2b8f85a2"
+                            RoleId = "48856202-6f8f-4797-893c-addb0c330ed1"
                         },
                         new
                         {
                             Id = 13,
                             ClaimType = "policies",
                             ClaimValue = "COMENTARIO_READ",
-                            RoleId = "0b63c1d5-77e6-486c-bbb0-4a1f2b8f85a2"
+                            RoleId = "48856202-6f8f-4797-893c-addb0c330ed1"
                         },
                         new
                         {
                             Id = 14,
                             ClaimType = "policies",
                             ClaimValue = "COMENTARIO_CREATE",
-                            RoleId = "0b63c1d5-77e6-486c-bbb0-4a1f2b8f85a2"
+                            RoleId = "48856202-6f8f-4797-893c-addb0c330ed1"
                         });
                 });
 
@@ -533,8 +536,7 @@ namespace MasterNet.Persistence.Migrations
                     b.HasOne("MasterNet.Domain.Perfume", "Perfume")
                         .WithMany("Fotos")
                         .HasForeignKey("PerfumeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Perfume");
                 });

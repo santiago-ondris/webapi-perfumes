@@ -1,3 +1,4 @@
+using MasterNet.Application.Core;
 using MasterNet.Application.Precios.GetPrecios;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +18,7 @@ namespace MasterNet.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> PaginationPrecio
+        public async Task<ActionResult<PagedList<PrecioResponse>>> PaginationPrecio
         (
             [FromQuery] GetPreciosRequest request,
             CancellationToken cancellationToken

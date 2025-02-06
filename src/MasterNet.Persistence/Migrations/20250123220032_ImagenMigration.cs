@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MasterNet.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class MigracionInicial : Migration
+    public partial class ImagenMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -227,7 +227,8 @@ namespace MasterNet.Persistence.Migrations
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     Url = table.Column<string>(type: "TEXT", nullable: true),
-                    PerfumeId = table.Column<Guid>(type: "TEXT", nullable: false)
+                    PerfumeId = table.Column<Guid>(type: "TEXT", nullable: true),
+                    PublicId = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -293,8 +294,8 @@ namespace MasterNet.Persistence.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "0b63c1d5-77e6-486c-bbb0-4a1f2b8f85a2", null, "CLIENT", "CLIENT" },
-                    { "14e08900-a668-4e9d-8a2a-3260c5979ff9", null, "ADMIN", "ADMIN" }
+                    { "48856202-6f8f-4797-893c-addb0c330ed1", null, "CLIENT", "CLIENT" },
+                    { "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8", null, "ADMIN", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -328,20 +329,20 @@ namespace MasterNet.Persistence.Migrations
                 columns: new[] { "Id", "ClaimType", "ClaimValue", "RoleId" },
                 values: new object[,]
                 {
-                    { 1, "policies", "PERFUME_READ", "14e08900-a668-4e9d-8a2a-3260c5979ff9" },
-                    { 2, "policies", "PERFUME_UPDATE", "14e08900-a668-4e9d-8a2a-3260c5979ff9" },
-                    { 3, "policies", "PERFUME_WRITE", "14e08900-a668-4e9d-8a2a-3260c5979ff9" },
-                    { 4, "policies", "PERFUME_DELETE", "14e08900-a668-4e9d-8a2a-3260c5979ff9" },
-                    { 5, "policies", "INGREDIENTE_CREATE", "14e08900-a668-4e9d-8a2a-3260c5979ff9" },
-                    { 6, "policies", "INGREDIENTE_READ", "14e08900-a668-4e9d-8a2a-3260c5979ff9" },
-                    { 7, "policies", "INGREDIENTE_UPDATE", "14e08900-a668-4e9d-8a2a-3260c5979ff9" },
-                    { 8, "policies", "COMENTARIO_READ", "14e08900-a668-4e9d-8a2a-3260c5979ff9" },
-                    { 9, "policies", "COMENTARIO_DELETE", "14e08900-a668-4e9d-8a2a-3260c5979ff9" },
-                    { 10, "policies", "COMENTARIO_CREATE", "14e08900-a668-4e9d-8a2a-3260c5979ff9" },
-                    { 11, "policies", "PERFUME_READ", "0b63c1d5-77e6-486c-bbb0-4a1f2b8f85a2" },
-                    { 12, "policies", "INGREDIENTE_READ", "0b63c1d5-77e6-486c-bbb0-4a1f2b8f85a2" },
-                    { 13, "policies", "COMENTARIO_READ", "0b63c1d5-77e6-486c-bbb0-4a1f2b8f85a2" },
-                    { 14, "policies", "COMENTARIO_CREATE", "0b63c1d5-77e6-486c-bbb0-4a1f2b8f85a2" }
+                    { 1, "policies", "PERFUME_READ", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
+                    { 2, "policies", "PERFUME_UPDATE", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
+                    { 3, "policies", "PERFUME_WRITE", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
+                    { 4, "policies", "PERFUME_DELETE", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
+                    { 5, "policies", "INGREDIENTE_CREATE", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
+                    { 6, "policies", "INGREDIENTE_READ", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
+                    { 7, "policies", "INGREDIENTE_UPDATE", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
+                    { 8, "policies", "COMENTARIO_READ", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
+                    { 9, "policies", "COMENTARIO_DELETE", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
+                    { 10, "policies", "COMENTARIO_CREATE", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
+                    { 11, "policies", "PERFUME_READ", "48856202-6f8f-4797-893c-addb0c330ed1" },
+                    { 12, "policies", "INGREDIENTE_READ", "48856202-6f8f-4797-893c-addb0c330ed1" },
+                    { 13, "policies", "COMENTARIO_READ", "48856202-6f8f-4797-893c-addb0c330ed1" },
+                    { 14, "policies", "COMENTARIO_CREATE", "48856202-6f8f-4797-893c-addb0c330ed1" }
                 });
 
             migrationBuilder.CreateIndex(

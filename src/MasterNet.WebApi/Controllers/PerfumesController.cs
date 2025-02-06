@@ -1,18 +1,22 @@
+using System.Net;
 using MasterNet.Application.Core;
-using MasterNet.Application.Perfumes.GetPerfume;
 using MasterNet.Application.Perfumes.GetPerfumes;
 using MasterNet.Application.Perfumes.PerfumeCreate;
-using MasterNet.Domain;
+using MasterNet.Application.Perfumes.PerfumeUpdate;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static MasterNet.Application.Perfumes.GetPerfume.GetPerfumeQuery;
 using static MasterNet.Application.Perfumes.GetPerfumes.GetPerfumesQuery;
 using static MasterNet.Application.Perfumes.PerfumeCreate.PerfumeCreateCommand;
+using static MasterNet.Application.Perfumes.PerfumeDelete.PerfumeDeleteCommand;
 using static MasterNet.Application.Perfumes.PerfumeReporteExcel.PerfumeReporteExcelQuery;
+using static MasterNet.Application.Perfumes.PerfumeUpdate.PerfumeUpdateCommand;
 
 namespace MasterNet.WebApi.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/perfumes")]
     public class PerfumesController : ControllerBase
     {
@@ -24,7 +28,7 @@ namespace MasterNet.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> PaginationCursos(
+        public async Task<ActionResult> PaginationPerfumes(
             [FromQuery] GetPerfumesRequest request,
             CancellationToken cancellationToken
         )
@@ -35,14 +39,37 @@ namespace MasterNet.WebApi.Controllers
             return resultado.IsSuccess ? Ok(resultado.Value) : NotFound();
         }
 
-        [HttpPost("create")]
+        [HttpPost]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
         // Creacion de un perfume
         public async Task<ActionResult<Result<Guid>>> PerfumeCreate(
             [FromForm] PerfumeCreateRequest request,
             CancellationToken cancellationToken)
         {
             var command = new PerfumeCreateCommandRequest(request);
-            return await _sender.Send(command, cancellationToken);            
+            var resultado = await _sender.Send(command, cancellationToken);          
+            return resultado.IsSuccess ? Ok(resultado.Value) : BadRequest();  
+        }
+
+        [HttpPut("{id}")]
+        // Actualizar un perfume por su Id
+        public async Task<ActionResult<Result<Guid>>> PerfumeUpdate(
+            [FromBody] PerfumeUpdateRequest request,
+            Guid id,
+            CancellationToken cancellationToken)
+        {
+            var command = new PerfumeUpdateCommandRequest(request, id);
+            var resultado = await _sender.Send(command, cancellationToken);
+            return resultado.IsSuccess ? Ok(resultado.Value) : BadRequest();            
+        }
+
+        [HttpDelete("{id}")]
+        // Eliminar un perfume por su Id
+        public async Task<ActionResult<Unit>> PerfumeDelete(Guid id, CancellationToken cancellationToken)
+        {
+            var command = new PerfumeDeleteCommandRequest(id);
+            var resultado = await _sender.Send(command, cancellationToken);
+            return resultado.IsSuccess ? Ok() : BadRequest();
         }
         
         [HttpGet("{id}")]

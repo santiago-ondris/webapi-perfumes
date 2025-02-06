@@ -41,7 +41,8 @@ namespace MasterNet.Application.Perfumes.GetPerfumes
                 IQueryable<Perfume> queryable = _context.Perfumes!
                                                 .Include(x => x.Ingredientes) 
                                                 .Include(x => x.Calificaciones) 
-                                                .Include(x => x.Precios);
+                                                .Include(x => x.Precios)
+                                                .Include(x => x.Fotos);
 
                 // Construcción dinamica de filtros usando expresiones
                 var predicate = ExpressionBuilder.New<Perfume>();

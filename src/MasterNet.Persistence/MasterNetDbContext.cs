@@ -49,7 +49,6 @@ namespace MasterNet.Persistence
                 .HasMany(m => m.Fotos)
                 .WithOne(m => m.Perfume)
                 .HasForeignKey(m => m.PerfumeId)
-                .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Perfume>()

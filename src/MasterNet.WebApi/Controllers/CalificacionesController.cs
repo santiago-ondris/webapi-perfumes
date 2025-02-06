@@ -1,4 +1,6 @@
 using MasterNet.Application.Calificaciones.GetCalificaciones;
+using MasterNet.Application.Core;
+using MasterNet.Application.Ingredientes.GetIngredientes;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using static MasterNet.Application.Calificaciones.GetCalificaciones.GetCalificacionesQuery;
@@ -17,7 +19,7 @@ namespace MasterNet.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> PaginationCalificacion
+        public async Task<ActionResult<PagedList<CalificacionResponse>>> PaginationCalificacion
         (
             [FromQuery] GetCalificacionesRequest request,
             CancellationToken cancellationToken

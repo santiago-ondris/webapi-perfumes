@@ -26,7 +26,7 @@ namespace MasterNet.Application.Perfumes.PerfumeReporteExcel
 
             public async Task<MemoryStream> Handle(PerfumeReporteExcelQueryRequest request, CancellationToken cancellationToken)
             {
-                var perfumes = await _context.Perfumes!.Take(3).Skip(0).ToListAsync();
+                var perfumes = await _context.Perfumes!.Take(100).Skip(0).ToListAsync();
 
                 return await _reporteService.GetCsvReport(perfumes);
             }

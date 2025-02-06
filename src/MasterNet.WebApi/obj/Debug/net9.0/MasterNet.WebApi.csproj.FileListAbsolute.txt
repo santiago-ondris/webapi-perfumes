@@ -145,3 +145,13 @@ D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\CsvHelpe
 D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\MasterNet.Infrastructure.dll
 D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\MasterNet.Infrastructure.pdb
 D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\obj\Debug\net9.0\MasterNet.WebApi.sourcelink.json
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\CloudinaryDotNet.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\Newtonsoft.Json.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\Documentos\Proyectos\MasterNet\src\MasterNet.WebApi\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
