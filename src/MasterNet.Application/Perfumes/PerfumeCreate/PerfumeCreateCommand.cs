@@ -14,7 +14,7 @@ namespace MasterNet.Application.Perfumes.PerfumeCreate
     {
         // Define el comando para crear un perfume
         public record PerfumeCreateCommandRequest(PerfumeCreateRequest perfumeCreateRequest)
-        : IRequest<Result<Guid>>;
+        : IRequest<Result<Guid>>, ICommandBase;
 
         // Handler que procesa la creación de un perfume
         internal class PerfumeCreateCommandHandler

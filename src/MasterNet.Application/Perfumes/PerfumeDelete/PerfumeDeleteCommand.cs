@@ -9,7 +9,7 @@ namespace MasterNet.Application.Perfumes.PerfumeDelete
     public class PerfumeDeleteCommand
     {
         public record PerfumeDeleteCommandRequest(Guid? PerfumeId)
-        : IRequest<Result<Unit>>;
+        : IRequest<Result<Unit>>, ICommandBase;
 
         internal class PerfumeDeleteCommandHandler
         : IRequestHandler<PerfumeDeleteCommandRequest, Result<Unit>>

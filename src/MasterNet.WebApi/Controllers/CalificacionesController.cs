@@ -2,6 +2,7 @@ using MasterNet.Application.Calificaciones.GetCalificaciones;
 using MasterNet.Application.Core;
 using MasterNet.Application.Ingredientes.GetIngredientes;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static MasterNet.Application.Calificaciones.GetCalificaciones.GetCalificacionesQuery;
 
@@ -18,6 +19,7 @@ namespace MasterNet.WebApi.Controllers
             _sender = sender;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<PagedList<CalificacionResponse>>> PaginationCalificacion
         (

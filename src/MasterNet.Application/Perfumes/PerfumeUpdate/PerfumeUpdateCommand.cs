@@ -10,7 +10,7 @@ namespace MasterNet.Application.Perfumes.PerfumeUpdate
     {
         public record PerfumeUpdateCommandRequest(
             PerfumeUpdateRequest PerfumeUpdateRequest, Guid? PerfumeId
-            ) : IRequest<Result<Guid>>;
+            ) : IRequest<Result<Guid>>, ICommandBase;
 
         internal class PerfumeUpdateCommandHandler
             : IRequestHandler<PerfumeUpdateCommandRequest, Result<Guid>>

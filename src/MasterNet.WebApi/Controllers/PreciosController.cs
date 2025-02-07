@@ -1,6 +1,7 @@
 using MasterNet.Application.Core;
 using MasterNet.Application.Precios.GetPrecios;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static MasterNet.Application.Precios.GetPrecios.GetPreciosQuery;
 
@@ -17,6 +18,7 @@ namespace MasterNet.WebApi.Controllers
             _sender = sender;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<PagedList<PrecioResponse>>> PaginationPrecio
         (

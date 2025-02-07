@@ -17,6 +17,10 @@ namespace MasterNet.Infrastructure.Security
         {
             return _httpContextAccesor.HttpContext!.User.FindFirstValue(ClaimTypes.Name)!;
         }
+        public string GetEmail()
+        {
+            return _httpContextAccesor.HttpContext!.User.FindFirstValue(ClaimTypes.Email)!;
+        }
     }
 
 }

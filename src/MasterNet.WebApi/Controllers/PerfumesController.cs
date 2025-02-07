@@ -3,6 +3,7 @@ using MasterNet.Application.Core;
 using MasterNet.Application.Perfumes.GetPerfumes;
 using MasterNet.Application.Perfumes.PerfumeCreate;
 using MasterNet.Application.Perfumes.PerfumeUpdate;
+using MasterNet.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +17,6 @@ using static MasterNet.Application.Perfumes.PerfumeUpdate.PerfumeUpdateCommand;
 namespace MasterNet.WebApi.Controllers
 {
     [ApiController]
-    [Authorize]
     [Route("api/perfumes")]
     public class PerfumesController : ControllerBase
     {
@@ -27,6 +27,7 @@ namespace MasterNet.WebApi.Controllers
             _sender = sender;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult> PaginationPerfumes(
             [FromQuery] GetPerfumesRequest request,
@@ -39,6 +40,7 @@ namespace MasterNet.WebApi.Controllers
             return resultado.IsSuccess ? Ok(resultado.Value) : NotFound();
         }
 
+        [Authorize(Policy = PolicyMaster.PERFUME_WRITE)]
         [HttpPost]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         // Creacion de un perfume
@@ -51,6 +53,7 @@ namespace MasterNet.WebApi.Controllers
             return resultado.IsSuccess ? Ok(resultado.Value) : BadRequest();  
         }
 
+        [Authorize(Policy = PolicyMaster.PERFUME_UPDATE)]
         [HttpPut("{id}")]
         // Actualizar un perfume por su Id
         public async Task<ActionResult<Result<Guid>>> PerfumeUpdate(
@@ -63,6 +66,7 @@ namespace MasterNet.WebApi.Controllers
             return resultado.IsSuccess ? Ok(resultado.Value) : BadRequest();            
         }
 
+        [Authorize(Policy = PolicyMaster.PERFUME_DELETE)]
         [HttpDelete("{id}")]
         // Eliminar un perfume por su Id
         public async Task<ActionResult<Unit>> PerfumeDelete(Guid id, CancellationToken cancellationToken)
@@ -72,6 +76,7 @@ namespace MasterNet.WebApi.Controllers
             return resultado.IsSuccess ? Ok() : BadRequest();
         }
         
+        [AllowAnonymous]
         [HttpGet("{id}")]
         // Obtener un perfume por su Id
         public async Task<IActionResult> PerfumeGet(Guid id, CancellationToken cancellationToken)
@@ -82,6 +87,7 @@ namespace MasterNet.WebApi.Controllers
             return resultado.IsSuccess ? Ok(resultado.Value) : BadRequest();
         }
 
+        [AllowAnonymous]
         [HttpGet("reporte")]
         // Descarga de reporte en formato CSV de perfumes
         public async Task<IActionResult> ReporteCSV(CancellationToken cancellationToken)

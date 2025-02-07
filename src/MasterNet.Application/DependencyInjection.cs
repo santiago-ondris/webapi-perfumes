@@ -17,11 +17,10 @@ namespace MasterNet.Application
             services.AddMediatR(configuration =>
             {
               configuration.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
+              configuration.AddOpenBehavior(typeof(ValidationBehavior<,>));
             });
 
-            // Configura FluentValidation para la validación automática
-            services.AddFluentValidationAutoValidation();
-            services.AddValidatorsFromAssemblyContaining<PerfumeCreateCommand>();
+            services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly);
 
             services.AddAutoMapper(typeof(MappingProfile).Assembly);
 

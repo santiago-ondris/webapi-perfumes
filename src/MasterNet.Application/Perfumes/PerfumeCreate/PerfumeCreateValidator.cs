@@ -8,8 +8,8 @@ namespace MasterNet.Application.Perfumes.PerfumeCreate
     {
         public PerfumeCreateValidator()
         {
-            RuleFor(x => x.Nombre).NotEmpty().WithMessage("El nombre del perfume es requerido");
-            RuleFor(x => x.Descripcion).NotEmpty().WithMessage("La descripción del perfume es requerida");
+            RuleFor(x => x.Nombre).NotEmpty().WithMessage("El nombre esta vacio");
+            RuleFor(x => x.Descripcion).NotEmpty().WithMessage("La descripcion no puede ser nula");
         }
     }
 }
