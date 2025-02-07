@@ -38,12 +38,17 @@ namespace MasterNet.WebApi.Extensions
             return services;
         }
 
-        public static IApplicationBuilder useSwaggerDocumentation(
+        public static IApplicationBuilder UseSwaggerDocumentation(
             this IApplicationBuilder app
         )
         {
             app.UseSwagger();
-            app.UseSwaggerUI();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
+                // Esto hace que la UI de Swagger se muestre en la raíz
+                c.RoutePrefix = string.Empty;
+            });
             return app;
         }
     }

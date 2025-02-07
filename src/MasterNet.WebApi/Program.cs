@@ -32,7 +32,7 @@ var app = builder.Build(); // Instancia de la aplicacion
 
 // Configure the HTTP request pipeline.
 app.UseMiddleware<ExceptionMiddleware>(); // Middleware para el manejo de excepciones
-app.useSwaggerDocumentation();
+app.UseSwaggerDocumentation();
 
 app.UseAuthentication();
 app.UseAuthorization();
