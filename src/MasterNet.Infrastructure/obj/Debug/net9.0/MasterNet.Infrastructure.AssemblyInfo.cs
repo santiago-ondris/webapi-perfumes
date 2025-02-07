@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MasterNet.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc9dda2be50dc994c7bee0f10627e226dd397985")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d033b72a7fd741dd8209d3b8b688647d653aceb3")]
 [assembly: System.Reflection.AssemblyProductAttribute("MasterNet.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MasterNet.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
