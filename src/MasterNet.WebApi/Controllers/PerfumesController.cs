@@ -40,7 +40,7 @@ namespace MasterNet.WebApi.Controllers
             return resultado.IsSuccess ? Ok(resultado.Value) : NotFound();
         }
 
-        [Authorize(Policy = PolicyMaster.PERFUME_WRITE)]
+        [AllowAnonymous]
         [HttpPost]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         // Creacion de un perfume
@@ -53,7 +53,7 @@ namespace MasterNet.WebApi.Controllers
             return resultado.IsSuccess ? Ok(resultado.Value) : BadRequest();  
         }
 
-        [Authorize(Policy = PolicyMaster.PERFUME_UPDATE)]
+        [AllowAnonymous]
         [HttpPut("{id}")]
         // Actualizar un perfume por su Id
         public async Task<ActionResult<Result<Guid>>> PerfumeUpdate(
@@ -66,7 +66,7 @@ namespace MasterNet.WebApi.Controllers
             return resultado.IsSuccess ? Ok(resultado.Value) : BadRequest();            
         }
 
-        [Authorize(Policy = PolicyMaster.PERFUME_DELETE)]
+        [AllowAnonymous]
         [HttpDelete("{id}")]
         // Eliminar un perfume por su Id
         public async Task<ActionResult<Unit>> PerfumeDelete(Guid id, CancellationToken cancellationToken)

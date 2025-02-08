@@ -4,52 +4,59 @@ using MasterNet.Infrastructure.Security;
 using MasterNet.Persistence;
 using MasterNet.Persistence.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 
 namespace MasterNet.WebApi.Extensions
 {
-    // Clase de extension para agregar servicios relacionados con la identidad (Identity) a la coleccion de servicios de la aplicación.
     public static class IdentityServiceExtensions
     {
-        /// <summary>
-        /// Metodo de extension para configurar e inyectar los servicios de Identity en la aplicacion.
-        /// </summary>
-        /// <param name="services">La coleccion de servicios en la que se agregarán los servicios de identidad.</param>
-        /// <param name="configuration">Objeto de configuracion de la aplicación, que puede ser utilizado para acceder a valores de configuracion.</param>
-        /// <returns>Devuelve la coleccion de servicios actualizada, permitiendo el encadenamiento de metodos.</returns>
         public static IServiceCollection AddIdentityServices(
             this IServiceCollection services,
-            IConfiguration configuration
-        )
+            IConfiguration configuration)
         {
-            // Configuracion de Identity para el usuario (AppUsuario):
-            services.AddIdentityCore<AppUsuario>(opt => {
-                opt.Password.RequireNonAlphanumeric = false; // La contraseña no necesita caracteres especiales
-                opt.User.RequireUniqueEmail = true; // Cada usuario debe tener un email unico
+            // Configura Identity para el usuario (AppUsuario)
+            services.AddIdentityCore<AppUsuario>(options =>
+            {
+                options.Password.RequireNonAlphanumeric = false; // No se requieren caracteres especiales
+                options.User.RequireUniqueEmail = true;           // Cada usuario debe tener un email único
             })
-            .AddRoles<IdentityRole>() // Se habilita el soporte para roles de usuario
-            .AddEntityFrameworkStores<MasterNetDbContext>(); // Se utiliza MasterNetDbContext para el almacenamiento de datos de Identity
+            .AddRoles<IdentityRole>() // Se habilita el soporte para roles
+            .AddEntityFrameworkStores<MasterNetDbContext>(); // Usa MasterNetDbContext para el almacenamiento
 
-            // Inyección de dependencias:
-            // Se registra el servicio para la generación de tokens (ITokenService) y su implementación (TokenService)
-            // asi como el servicio de acceso a la informacion del usuario (IUserAccessor).
+            // Inyecta los servicios para la generación de tokens y acceso al usuario
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUserAccessor, UserAccessor>();
 
+            // Configuración del token JWT
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["TokenKey"]!));
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(opt => {
-                opt.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = key,
-                    ValidateIssuer = false,
-                    ValidateAudience = false
-                };
-            });
 
-            // Se retorna la coleccion de servicios modificada para continuar con el registro de otros servicios.
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = key,
+                        ValidateIssuer = false,
+                        ValidateAudience = false
+                    };
+
+                    // Configuración del evento OnForbidden para retornar un mensaje personalizado
+                    options.Events = new JwtBearerEvents
+                    {
+                        OnForbidden = async context =>
+                        {
+                            context.Response.StatusCode = 403;
+                            context.Response.ContentType = "application/json";
+                            await context.Response.WriteAsync("{\"message\":\"Debes ser tipo ADMIN\"}");
+                        }
+                    };
+                });
+
             return services;
         }
     }

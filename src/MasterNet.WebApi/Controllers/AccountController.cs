@@ -52,7 +52,7 @@ namespace MasterNet.WebApi.Controllers
             return resultado.IsSuccess ? Ok(resultado.Value) : Unauthorized();
         }
 
-        [Authorize]
+        [AllowAnonymous]
         [HttpGet("me")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         public async Task<ActionResult<Profile>> Me(CancellationToken cancellationToken)
