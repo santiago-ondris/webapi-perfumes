@@ -1,38 +1,8 @@
-## Ignore Visual Studio files
 .vs/
-*.user
-*.suo
-
-## Ignore build results
 bin/
 obj/
-out/
-
-## Ignore NuGet packages
-*.nupkg
-packages/
-*.snupkg
-
-## Ignore .NET project lock files
-project.lock.json
-project.fragment.lock.json
-artifacts/
-
-## Ignore Rider IDE
-.idea/
-
-## Ignore Mac/Linux system files
-.DS_Store
-*.swp
-
-## Logs
-*.log
-
-## Publish
-*.publishsettings
-
-## ASP.NET user secrets
-secrets.json
-
-## Others
-*.db
+*.user
+*.suo
+*.pdb
+*.dll
+*.cache
