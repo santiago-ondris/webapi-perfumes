@@ -159,8 +159,8 @@ namespace MasterNet.Persistence
         }
         private void CargarDataSeguridad(ModelBuilder modelBuilder)
         {
-            var adminId = Guid.NewGuid().ToString();
-            var clientId = Guid.NewGuid().ToString();
+            var adminId = "d3b3f882-24b5-4e92-9a34-123456789012";
+            var clientId = "c8b1fabc-567d-4c45-8c12-098765432109";
 
             modelBuilder.Entity<IdentityRole>().HasData(
                 new IdentityRole {

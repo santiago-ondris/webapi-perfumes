@@ -1,5 +1,7 @@
 using System.Net;
 using MasterNet.Application.Core;
+using MasterNet.Application.Interfaces;
+using MasterNet.Application.Perfumes.DTOs;
 using MasterNet.Application.Perfumes.GetPerfumes;
 using MasterNet.Application.Perfumes.PerfumeCreate;
 using MasterNet.Application.Perfumes.PerfumeUpdate;
@@ -96,6 +98,14 @@ namespace MasterNet.WebApi.Controllers
             var resultado = await _sender.Send(query, cancellationToken);
             byte[] excelBytes = resultado.ToArray();
             return File(excelBytes, "text/csv", "perfumes.csv");
+        }
+
+        [HttpGet("dapper")]
+        public async Task<ActionResult<List<PerfumeDapperDto>>> ObtenerConDapper(
+        [FromServices] IPerfumeDapperRepository repo)
+        {
+            var perfumes = await repo.ObtenerPerfumesAsync();
+            return Ok(perfumes);
         }
     }
 }

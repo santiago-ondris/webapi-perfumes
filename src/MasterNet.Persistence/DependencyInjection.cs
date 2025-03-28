@@ -17,7 +17,7 @@ namespace MasterNet.Persistence
                 opt.LogTo(Console.WriteLine, new [] {
                     DbLoggerCategory.Database.Command.Name
                 }, LogLevel.Information).EnableSensitiveDataLogging();
-                opt.UseSqlite(configuration.GetConnectionString("SqliteDatabase"));
+                opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
 
             return services;

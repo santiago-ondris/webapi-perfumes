@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MasterNet.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class ImagenMigration : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,10 +17,10 @@ namespace MasterNet.Persistence.Migrations
                 name: "AspNetRoles",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "TEXT", nullable: false),
-                    Name = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
-                    NormalizedName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "TEXT", nullable: true)
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -31,23 +31,23 @@ namespace MasterNet.Persistence.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "TEXT", nullable: false),
-                    NombreCompleto = table.Column<string>(type: "TEXT", nullable: true),
-                    Nacionalidad = table.Column<string>(type: "TEXT", nullable: true),
-                    UserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(type: "INTEGER", nullable: false),
-                    PasswordHash = table.Column<string>(type: "TEXT", nullable: true),
-                    SecurityStamp = table.Column<string>(type: "TEXT", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "TEXT", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "TEXT", nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(type: "INTEGER", nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(type: "INTEGER", nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(type: "TEXT", nullable: true),
-                    LockoutEnabled = table.Column<bool>(type: "INTEGER", nullable: false),
-                    AccessFailedCount = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    NombreCompleto = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Nacionalidad = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
+                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -58,8 +58,8 @@ namespace MasterNet.Persistence.Migrations
                 name: "ingredientes",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Nombre = table.Column<string>(type: "TEXT", nullable: true)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -70,10 +70,10 @@ namespace MasterNet.Persistence.Migrations
                 name: "perfumes",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Nombre = table.Column<string>(type: "TEXT", nullable: true),
-                    Descripcion = table.Column<string>(type: "TEXT", nullable: true),
-                    FechaPublicacion = table.Column<DateTime>(type: "TEXT", nullable: true)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FechaPublicacion = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -84,10 +84,10 @@ namespace MasterNet.Persistence.Migrations
                 name: "precios",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Nombre = table.Column<string>(type: "VARCHAR", maxLength: 250, nullable: true),
-                    PrecioActual = table.Column<decimal>(type: "TEXT", precision: 10, scale: 2, nullable: false),
-                    PrecioPromocion = table.Column<decimal>(type: "TEXT", precision: 10, scale: 2, nullable: false)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nombre = table.Column<string>(type: "VARCHAR(250)", maxLength: 250, nullable: true),
+                    PrecioActual = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false),
+                    PrecioPromocion = table.Column<decimal>(type: "decimal(10,2)", precision: 10, scale: 2, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -98,11 +98,11 @@ namespace MasterNet.Persistence.Migrations
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    RoleId = table.Column<string>(type: "TEXT", nullable: false),
-                    ClaimType = table.Column<string>(type: "TEXT", nullable: true),
-                    ClaimValue = table.Column<string>(type: "TEXT", nullable: true)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -119,11 +119,11 @@ namespace MasterNet.Persistence.Migrations
                 name: "AspNetUserClaims",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    UserId = table.Column<string>(type: "TEXT", nullable: false),
-                    ClaimType = table.Column<string>(type: "TEXT", nullable: true),
-                    ClaimValue = table.Column<string>(type: "TEXT", nullable: true)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -140,10 +140,10 @@ namespace MasterNet.Persistence.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "TEXT", nullable: false),
-                    ProviderKey = table.Column<string>(type: "TEXT", nullable: false),
-                    ProviderDisplayName = table.Column<string>(type: "TEXT", nullable: true),
-                    UserId = table.Column<string>(type: "TEXT", nullable: false)
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -160,8 +160,8 @@ namespace MasterNet.Persistence.Migrations
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "TEXT", nullable: false),
-                    RoleId = table.Column<string>(type: "TEXT", nullable: false)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -184,10 +184,10 @@ namespace MasterNet.Persistence.Migrations
                 name: "AspNetUserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "TEXT", nullable: false),
-                    LoginProvider = table.Column<string>(type: "TEXT", nullable: false),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Value = table.Column<string>(type: "TEXT", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -204,11 +204,11 @@ namespace MasterNet.Persistence.Migrations
                 name: "calificaciones",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Usuario = table.Column<string>(type: "TEXT", nullable: true),
-                    Puntaje = table.Column<int>(type: "INTEGER", nullable: false),
-                    Comentario = table.Column<string>(type: "TEXT", nullable: true),
-                    PerfumeId = table.Column<Guid>(type: "TEXT", nullable: true)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Usuario = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Puntaje = table.Column<int>(type: "int", nullable: false),
+                    Comentario = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PerfumeId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -225,10 +225,10 @@ namespace MasterNet.Persistence.Migrations
                 name: "imagenes",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Url = table.Column<string>(type: "TEXT", nullable: true),
-                    PerfumeId = table.Column<Guid>(type: "TEXT", nullable: true),
-                    PublicId = table.Column<string>(type: "TEXT", nullable: true)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Url = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PerfumeId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    PublicId = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -245,8 +245,8 @@ namespace MasterNet.Persistence.Migrations
                 name: "perfumes_ingredientes",
                 columns: table => new
                 {
-                    PerfumeId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    IngredienteId = table.Column<Guid>(type: "TEXT", nullable: false)
+                    PerfumeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IngredienteId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -269,8 +269,8 @@ namespace MasterNet.Persistence.Migrations
                 name: "perfumes_precios",
                 columns: table => new
                 {
-                    PerfumeId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    PrecioId = table.Column<Guid>(type: "TEXT", nullable: false)
+                    PerfumeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PrecioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -294,8 +294,8 @@ namespace MasterNet.Persistence.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "48856202-6f8f-4797-893c-addb0c330ed1", null, "CLIENT", "CLIENT" },
-                    { "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8", null, "ADMIN", "ADMIN" }
+                    { "ca74142f-b758-4e8d-974e-44a108ceccb8", null, "ADMIN", "ADMIN" },
+                    { "e1891e72-b686-40a3-b7af-0df355e4a6b7", null, "CLIENT", "CLIENT" }
                 });
 
             migrationBuilder.InsertData(
@@ -329,20 +329,20 @@ namespace MasterNet.Persistence.Migrations
                 columns: new[] { "Id", "ClaimType", "ClaimValue", "RoleId" },
                 values: new object[,]
                 {
-                    { 1, "policies", "PERFUME_READ", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
-                    { 2, "policies", "PERFUME_UPDATE", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
-                    { 3, "policies", "PERFUME_WRITE", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
-                    { 4, "policies", "PERFUME_DELETE", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
-                    { 5, "policies", "INGREDIENTE_CREATE", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
-                    { 6, "policies", "INGREDIENTE_READ", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
-                    { 7, "policies", "INGREDIENTE_UPDATE", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
-                    { 8, "policies", "COMENTARIO_READ", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
-                    { 9, "policies", "COMENTARIO_DELETE", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
-                    { 10, "policies", "COMENTARIO_CREATE", "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8" },
-                    { 11, "policies", "PERFUME_READ", "48856202-6f8f-4797-893c-addb0c330ed1" },
-                    { 12, "policies", "INGREDIENTE_READ", "48856202-6f8f-4797-893c-addb0c330ed1" },
-                    { 13, "policies", "COMENTARIO_READ", "48856202-6f8f-4797-893c-addb0c330ed1" },
-                    { 14, "policies", "COMENTARIO_CREATE", "48856202-6f8f-4797-893c-addb0c330ed1" }
+                    { 1, "policies", "PERFUME_READ", "ca74142f-b758-4e8d-974e-44a108ceccb8" },
+                    { 2, "policies", "PERFUME_UPDATE", "ca74142f-b758-4e8d-974e-44a108ceccb8" },
+                    { 3, "policies", "PERFUME_WRITE", "ca74142f-b758-4e8d-974e-44a108ceccb8" },
+                    { 4, "policies", "PERFUME_DELETE", "ca74142f-b758-4e8d-974e-44a108ceccb8" },
+                    { 5, "policies", "INGREDIENTE_CREATE", "ca74142f-b758-4e8d-974e-44a108ceccb8" },
+                    { 6, "policies", "INGREDIENTE_READ", "ca74142f-b758-4e8d-974e-44a108ceccb8" },
+                    { 7, "policies", "INGREDIENTE_UPDATE", "ca74142f-b758-4e8d-974e-44a108ceccb8" },
+                    { 8, "policies", "COMENTARIO_READ", "ca74142f-b758-4e8d-974e-44a108ceccb8" },
+                    { 9, "policies", "COMENTARIO_DELETE", "ca74142f-b758-4e8d-974e-44a108ceccb8" },
+                    { 10, "policies", "COMENTARIO_CREATE", "ca74142f-b758-4e8d-974e-44a108ceccb8" },
+                    { 11, "policies", "PERFUME_READ", "e1891e72-b686-40a3-b7af-0df355e4a6b7" },
+                    { 12, "policies", "INGREDIENTE_READ", "e1891e72-b686-40a3-b7af-0df355e4a6b7" },
+                    { 13, "policies", "COMENTARIO_READ", "e1891e72-b686-40a3-b7af-0df355e4a6b7" },
+                    { 14, "policies", "COMENTARIO_CREATE", "e1891e72-b686-40a3-b7af-0df355e4a6b7" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -354,7 +354,8 @@ namespace MasterNet.Persistence.Migrations
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName",
-                unique: true);
+                unique: true,
+                filter: "[NormalizedName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
@@ -380,7 +381,8 @@ namespace MasterNet.Persistence.Migrations
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
-                unique: true);
+                unique: true,
+                filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_calificaciones_PerfumeId",

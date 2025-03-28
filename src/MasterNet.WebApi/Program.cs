@@ -1,6 +1,7 @@
 // Archivo contenedor de dependencias
 using MasterNet.Application;
 using MasterNet.Application.Interfaces;
+using MasterNet.Infrastructure.Dapper;
 using MasterNet.Infrastructure.Photos;
 using MasterNet.Infrastructure.Reports;
 using MasterNet.Persistence;
@@ -19,6 +20,9 @@ builder.Services.AddScoped<IPhotoService, PhotoService>(); // Builder para el se
 
 builder.Services.AddScoped(typeof(IReportService<>), typeof(ReportService<>)); // Builder para los reportes
 builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddScoped<IDapperContext, DapperContext>();
+builder.Services.AddScoped<IPerfumeDapperRepository, PerfumeDapperRepository>();
 
 builder.Services.AddControllers(); // Builder para los controladores
 

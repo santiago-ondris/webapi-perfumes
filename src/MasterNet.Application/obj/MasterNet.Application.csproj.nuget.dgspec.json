@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Application\\MasterNet.Application.csproj": {}
+    "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Application\\MasterNet.Application.csproj": {}
   },
   "projects": {
-    "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Application\\MasterNet.Application.csproj": {
+    "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Application\\MasterNet.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Application\\MasterNet.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Application\\MasterNet.Application.csproj",
         "projectName": "MasterNet.Application",
-        "projectPath": "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Application\\MasterNet.Application.csproj",
+        "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Application\\MasterNet.Application.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Application\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +32,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Domain\\MasterNet.Domain.csproj": {
-                "projectPath": "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Domain\\MasterNet.Domain.csproj"
+              "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Domain\\MasterNet.Domain.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Domain\\MasterNet.Domain.csproj"
               },
-              "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Persistence\\MasterNet.Persistence.csproj": {
-                "projectPath": "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Persistence\\MasterNet.Persistence.csproj"
+              "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Persistence\\MasterNet.Persistence.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Persistence\\MasterNet.Persistence.csproj"
               }
             }
           }
@@ -46,7 +50,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -81,21 +86,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.2.24157.14/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Domain\\MasterNet.Domain.csproj": {
+    "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Domain\\MasterNet.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Domain\\MasterNet.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Domain\\MasterNet.Domain.csproj",
         "projectName": "MasterNet.Domain",
-        "projectPath": "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Domain\\MasterNet.Domain.csproj",
+        "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Domain\\MasterNet.Domain.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -120,7 +129,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -141,21 +151,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.2.24157.14/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Persistence\\MasterNet.Persistence.csproj": {
+    "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Persistence\\MasterNet.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Persistence\\MasterNet.Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Persistence\\MasterNet.Persistence.csproj",
         "projectName": "MasterNet.Persistence",
-        "projectPath": "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Persistence\\MasterNet.Persistence.csproj",
+        "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Persistence\\MasterNet.Persistence.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Persistence\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Persistence\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -169,8 +183,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Domain\\MasterNet.Domain.csproj": {
-                "projectPath": "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Domain\\MasterNet.Domain.csproj"
+              "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Domain\\MasterNet.Domain.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Domain\\MasterNet.Domain.csproj"
               }
             }
           }
@@ -184,7 +198,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -196,27 +211,27 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.0-preview.2.24128.4, )"
+              "version": "[9.0.3, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.0-preview.2.24128.4, )"
+              "version": "[9.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.0-preview.2.24128.4, )"
+              "version": "[9.0.3, )"
             },
-            "Microsoft.EntityFrameworkCore.Sqlite": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[9.0.0-preview.2.24128.4, )"
+              "version": "[9.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.0-preview.2.24128.4, )"
+              "version": "[9.0.3, )"
             }
           },
           "imports": [
@@ -235,7 +250,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.2.24157.14/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

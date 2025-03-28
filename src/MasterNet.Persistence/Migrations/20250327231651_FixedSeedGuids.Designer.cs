@@ -3,6 +3,7 @@ using System;
 using MasterNet.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
@@ -11,32 +12,36 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MasterNet.Persistence.Migrations
 {
     [DbContext(typeof(MasterNetDbContext))]
-    [Migration("20250123220032_ImagenMigration")]
-    partial class ImagenMigration
+    [Migration("20250327231651_FixedSeedGuids")]
+    partial class FixedSeedGuids
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.0-preview.2.24128.4");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "9.0.3")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("MasterNet.Domain.Calificacion", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Comentario")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("PerfumeId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Puntaje")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("Usuario")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -49,16 +54,16 @@ namespace MasterNet.Persistence.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("PerfumeId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("PublicId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Url")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -71,10 +76,10 @@ namespace MasterNet.Persistence.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Nombre")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -97,16 +102,16 @@ namespace MasterNet.Persistence.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Descripcion")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("FechaPublicacion")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Nombre")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -153,10 +158,10 @@ namespace MasterNet.Persistence.Migrations
             modelBuilder.Entity("MasterNet.Domain.PerfumeIngrediente", b =>
                 {
                     b.Property<Guid>("IngredienteId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("PerfumeId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("IngredienteId", "PerfumeId");
 
@@ -168,10 +173,10 @@ namespace MasterNet.Persistence.Migrations
             modelBuilder.Entity("MasterNet.Domain.PerfumePrecio", b =>
                 {
                     b.Property<Guid>("PrecioId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("PerfumeId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("PrecioId", "PerfumeId");
 
@@ -184,7 +189,7 @@ namespace MasterNet.Persistence.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Nombre")
                         .HasMaxLength(250)
@@ -192,11 +197,11 @@ namespace MasterNet.Persistence.Migrations
 
                     b.Property<decimal>("PrecioActual")
                         .HasPrecision(10, 2)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("decimal(10,2)");
 
                     b.Property<decimal>("PrecioPromocion")
                         .HasPrecision(10, 2)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("decimal(10,2)");
 
                     b.HasKey("Id");
 
@@ -215,60 +220,60 @@ namespace MasterNet.Persistence.Migrations
             modelBuilder.Entity("MasterNet.Persistence.Models.AppUsuario", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bit");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bit");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Nacionalidad")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NombreCompleto")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bit");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("bit");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
@@ -277,7 +282,8 @@ namespace MasterNet.Persistence.Migrations
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasDatabaseName("UserNameIndex");
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -285,38 +291,39 @@ namespace MasterNet.Persistence.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("NormalizedName")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasDatabaseName("RoleNameIndex");
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8",
+                            Id = "d3b3f882-24b5-4e92-9a34-123456789012",
                             Name = "ADMIN",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "48856202-6f8f-4797-893c-addb0c330ed1",
+                            Id = "c8b1fabc-567d-4c45-8c12-098765432109",
                             Name = "CLIENT",
                             NormalizedName = "CLIENT"
                         });
@@ -326,17 +333,19 @@ namespace MasterNet.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RoleId")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -350,98 +359,98 @@ namespace MasterNet.Persistence.Migrations
                             Id = 1,
                             ClaimType = "policies",
                             ClaimValue = "PERFUME_READ",
-                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
+                            RoleId = "d3b3f882-24b5-4e92-9a34-123456789012"
                         },
                         new
                         {
                             Id = 2,
                             ClaimType = "policies",
                             ClaimValue = "PERFUME_UPDATE",
-                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
+                            RoleId = "d3b3f882-24b5-4e92-9a34-123456789012"
                         },
                         new
                         {
                             Id = 3,
                             ClaimType = "policies",
                             ClaimValue = "PERFUME_WRITE",
-                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
+                            RoleId = "d3b3f882-24b5-4e92-9a34-123456789012"
                         },
                         new
                         {
                             Id = 4,
                             ClaimType = "policies",
                             ClaimValue = "PERFUME_DELETE",
-                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
+                            RoleId = "d3b3f882-24b5-4e92-9a34-123456789012"
                         },
                         new
                         {
                             Id = 5,
                             ClaimType = "policies",
                             ClaimValue = "INGREDIENTE_CREATE",
-                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
+                            RoleId = "d3b3f882-24b5-4e92-9a34-123456789012"
                         },
                         new
                         {
                             Id = 6,
                             ClaimType = "policies",
                             ClaimValue = "INGREDIENTE_READ",
-                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
+                            RoleId = "d3b3f882-24b5-4e92-9a34-123456789012"
                         },
                         new
                         {
                             Id = 7,
                             ClaimType = "policies",
                             ClaimValue = "INGREDIENTE_UPDATE",
-                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
+                            RoleId = "d3b3f882-24b5-4e92-9a34-123456789012"
                         },
                         new
                         {
                             Id = 8,
                             ClaimType = "policies",
                             ClaimValue = "COMENTARIO_READ",
-                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
+                            RoleId = "d3b3f882-24b5-4e92-9a34-123456789012"
                         },
                         new
                         {
                             Id = 9,
                             ClaimType = "policies",
                             ClaimValue = "COMENTARIO_DELETE",
-                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
+                            RoleId = "d3b3f882-24b5-4e92-9a34-123456789012"
                         },
                         new
                         {
                             Id = 10,
                             ClaimType = "policies",
                             ClaimValue = "COMENTARIO_CREATE",
-                            RoleId = "9c0bb1f5-e687-4de2-abb2-112f11e0ecc8"
+                            RoleId = "d3b3f882-24b5-4e92-9a34-123456789012"
                         },
                         new
                         {
                             Id = 11,
                             ClaimType = "policies",
                             ClaimValue = "PERFUME_READ",
-                            RoleId = "48856202-6f8f-4797-893c-addb0c330ed1"
+                            RoleId = "c8b1fabc-567d-4c45-8c12-098765432109"
                         },
                         new
                         {
                             Id = 12,
                             ClaimType = "policies",
                             ClaimValue = "INGREDIENTE_READ",
-                            RoleId = "48856202-6f8f-4797-893c-addb0c330ed1"
+                            RoleId = "c8b1fabc-567d-4c45-8c12-098765432109"
                         },
                         new
                         {
                             Id = 13,
                             ClaimType = "policies",
                             ClaimValue = "COMENTARIO_READ",
-                            RoleId = "48856202-6f8f-4797-893c-addb0c330ed1"
+                            RoleId = "c8b1fabc-567d-4c45-8c12-098765432109"
                         },
                         new
                         {
                             Id = 14,
                             ClaimType = "policies",
                             ClaimValue = "COMENTARIO_CREATE",
-                            RoleId = "48856202-6f8f-4797-893c-addb0c330ed1"
+                            RoleId = "c8b1fabc-567d-4c45-8c12-098765432109"
                         });
                 });
 
@@ -449,17 +458,19 @@ namespace MasterNet.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -471,17 +482,17 @@ namespace MasterNet.Persistence.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -493,10 +504,10 @@ namespace MasterNet.Persistence.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("RoleId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -508,16 +519,16 @@ namespace MasterNet.Persistence.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 

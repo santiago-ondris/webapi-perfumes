@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Domain\\MasterNet.Domain.csproj": {}
+    "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Domain\\MasterNet.Domain.csproj": {}
   },
   "projects": {
-    "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Domain\\MasterNet.Domain.csproj": {
+    "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Domain\\MasterNet.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Domain\\MasterNet.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Domain\\MasterNet.Domain.csproj",
         "projectName": "MasterNet.Domain",
-        "projectPath": "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Domain\\MasterNet.Domain.csproj",
+        "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Domain\\MasterNet.Domain.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "D:\\Documentos\\Proyectos\\MasterNet\\src\\MasterNet.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\Source\\Repos\\webapi-perfumes\\src\\MasterNet.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,7 +43,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -60,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-preview.2.24157.14/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
