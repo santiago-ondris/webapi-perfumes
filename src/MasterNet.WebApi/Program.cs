@@ -34,7 +34,6 @@ builder.Services.AddCors(o => o.AddPolicy("corsapp", builder =>
         .WithOrigins("https://front-perfumes.vercel.app")
         .AllowAnyHeader()
         .AllowAnyMethod()
-        .AllowCredentials(); // si usás autenticación, JWT, etc.
 }));
 
 var app = builder.Build(); // Instancia de la aplicacion
@@ -43,10 +42,10 @@ var app = builder.Build(); // Instancia de la aplicacion
 app.UseMiddleware<ExceptionMiddleware>(); // Middleware para el manejo de excepciones
 app.UseSwaggerDocumentation();
 
+app.UseCors("corsapp");
+
 app.UseAuthentication();
 app.UseAuthorization();
-
-app.UseCors("corsapp");
 
 await app.SeedDataAuthentication(); // Inicializacion de la autenticacion
 
