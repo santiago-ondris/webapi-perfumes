@@ -37,7 +37,7 @@ El proyecto está organizado en las siguientes capas:
 ## Requisitos
 
 - [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
-- Base de datos SQlite
+- Base de datos SQL Server
 - Configuración de Cloudinary (agrega tus credenciales en el archivo `appsettings.json`)
 - Una llave secreta para JWT en el `appsettings.json` (por ejemplo, `TokenKey`)
 
