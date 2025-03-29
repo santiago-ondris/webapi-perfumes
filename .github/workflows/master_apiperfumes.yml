@@ -1,3 +1,6 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
 name: Build and deploy ASP.Net Core app to Azure Web App - apiperfumes
 
 on:
@@ -11,43 +14,49 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Setup .NET 9.0.202
+      - name: Setup .NET
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '9.0.202'
+          dotnet-version: '9.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore src/MasterNet.WebApi/MasterNet.WebApi.csproj
+        run: dotnet restore ./src/MasterNet.WebApi/MasterNet.WebApi.csproj
 
       - name: Build
-        run: dotnet build src/MasterNet.WebApi/MasterNet.WebApi.csproj --configuration Release --no-restore
+        run: dotnet build ./src/MasterNet.WebApi/MasterNet.WebApi.csproj --configuration Release --no-restore
 
       - name: Publish
-        run: dotnet publish src/MasterNet.WebApi/MasterNet.WebApi.csproj --configuration Release --output ./publish --no-build
+        run: dotnet publish ./src/MasterNet.WebApi/MasterNet.WebApi.csproj --configuration Release --output ./publish --no-build
 
-      - name: Upload artifact
+      - name: Upload artifact for deployment
         uses: actions/upload-artifact@v4
         with:
-          name: app
+          name: dotnet-app
           path: ./publish
 
   deploy:
     runs-on: windows-latest
     needs: build
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      - name: Download artifact
+      - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: app
+          name: dotnet-app
 
       - name: Deploy to Azure Web App
+        id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'apiperfumes'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_410F92337D4948E298D57670280E0FDF }}
           package: .
+
 
