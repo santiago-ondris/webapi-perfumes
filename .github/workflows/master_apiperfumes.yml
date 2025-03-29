@@ -1,6 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# Más acciones de GitHub para Azure: https://github.com/Azure/actions
-
 name: Build and deploy ASP.Net Core app to Azure Web App - apiperfumes
 
 on:
@@ -14,47 +11,43 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up .NET Core SDK
-        uses: actions/setup-dotnet@v3
+      - name: Setup .NET 9.0.202
+        uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '9.0.x'
+          dotnet-version: '9.0.202'
 
       - name: Restore dependencies
-        run: dotnet restore ./src/MasterNet.WebApi/MasterNet.WebApi.csproj
+        run: dotnet restore src/MasterNet.WebApi/MasterNet.WebApi.csproj
 
-      - name: Build project
-        run: dotnet build ./src/MasterNet.WebApi/MasterNet.WebApi.csproj --configuration Release --no-restore
+      - name: Build
+        run: dotnet build src/MasterNet.WebApi/MasterNet.WebApi.csproj --configuration Release --no-restore
 
-      - name: Publish project
-        run: dotnet publish ./src/MasterNet.WebApi/MasterNet.WebApi.csproj --configuration Release --output ./publish --no-build
+      - name: Publish
+        run: dotnet publish src/MasterNet.WebApi/MasterNet.WebApi.csproj --configuration Release --output ./publish --no-build
 
-      - name: Upload artifact for deployment
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: webapp
+          name: app
           path: ./publish
 
   deploy:
     runs-on: windows-latest
     needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      - name: Download artifact from build job
+      - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: webapp
+          name: app
 
       - name: Deploy to Azure Web App
-        id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'apiperfumes'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_410F92337D4948E298D57670280E0FDF }}
           package: .
+
