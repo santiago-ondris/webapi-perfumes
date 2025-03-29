@@ -28,8 +28,13 @@ builder.Services.AddControllers(); // Builder para los controladores
 
 builder.Services.AddSwaggerDocumentation();
 
-builder.Services.AddCors(o => o.AddPolicy("corsapp", builder => {
-    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+builder.Services.AddCors(o => o.AddPolicy("corsapp", builder =>
+{
+    builder
+        .WithOrigins("https://front-perfumes.vercel.app")
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowCredentials(); // si usás autenticación, JWT, etc.
 }));
 
 var app = builder.Build(); // Instancia de la aplicacion
