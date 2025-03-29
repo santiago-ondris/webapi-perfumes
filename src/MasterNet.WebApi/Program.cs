@@ -33,7 +33,7 @@ builder.Services.AddCors(o => o.AddPolicy("corsapp", builder =>
     builder
         .WithOrigins("https://front-perfumes.vercel.app")
         .AllowAnyHeader()
-        .AllowAnyMethod()
+        .AllowAnyMethod();
 }));
 
 var app = builder.Build(); // Instancia de la aplicacion
